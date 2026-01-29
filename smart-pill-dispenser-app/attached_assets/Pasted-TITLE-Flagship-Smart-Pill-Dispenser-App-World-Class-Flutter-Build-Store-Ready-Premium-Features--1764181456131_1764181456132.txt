@@ -1,0 +1,307 @@
+TITLE:
+Flagship Smart Pill Dispenser App – World-Class Flutter Build (Store-Ready, Premium Features)
+
+PROMPT:
+Act as a senior principal Flutter engineer at Apple/Google.
+Build a **world-class, store-ready Flutter application** for a Smart Pill Dispenser ecosystem with **premium UX, advanced features, and production-grade code architecture**.
+
+====================================================
+🔥 0. CORE GOAL (BIG PICTURE)
+====================================================
+Deliver a COMPLETE Flutter project that is:
+- Compile-ready for **Google Play** + **Apple App Store**
+- Fully state-managed (Provider or Riverpod)
+- Secure, smooth, animated, and beautifully designed
+- Written in null-safe Dart, latest Flutter stable
+- Structured like a professional $200k+ app build
+
+====================================================
+🔥 1. ADD THESE PREMIUM FEATURES (EVEN STRONGER)
+====================================================
+
+1. **AI-Adherence Insights (Mocked Algorithm)**
+   - Generate simple weekly insights:
+     "Best time you take meds", 
+     "Highest risk time", 
+     "Your adherence improved 17% this week"
+   - Display as cards/charts.
+
+2. **Habit Score / Health Score**
+   - A dynamic score (0–100) based on consistency.
+   - Shown on patient & caregiver dashboards.
+
+3. **Gamification (Micro-Rewards)**
+   - Streaks (3-day, 7-day, 30-day)
+   - Badges: “Consistent”, “Perfect Week”, “Never Missed”
+   - UI badges stored locally (mocked)
+
+4. **Chat-like Communication Feed (Mock Only)**
+   - Caregiver ⇄ Patient messaging feed for:
+     “Need help?”
+     “Medication updated”
+     “Missed dose noticed”
+   - Simple UI, mocked messages.
+
+5. **Multi-Device Sync UI (Future-proof)**
+   - Each patient can have:
+     - Home device
+     - Travel mini-dispenser
+   - Show them in a devices list.
+
+6. **Cloud Backup Architecture (UI + Mock service)**
+   - Button “Backup My Data”
+   - Mock backup timestamp
+   - UI only, no backend needed.
+
+7. **Emergency Auto-Dial (UI Only)**
+   - After 3 missed doses → show “Auto-call caregiver” button
+   - No actual call — UI mock.
+
+8. **Apple-grade Smooth Animations**
+   Add:
+   - Shared axis transitions
+   - Fade-through transitions
+   - Hero animations for cards
+   - Animated pill-dispensing icon
+
+9. **NFC Tap-to-Pair UI (Future ESP32 NFC)**
+   - “Tap your dispenser to pair”
+   - Show mock animation + success state
+
+10. **Voice Assistant Button (UI Only)**
+   - “What is my next dose?”
+   - “Show my history”
+   - No actual NLP, just UI simulation.
+
+11. **Profile Photo Support**
+   - For both roles
+   - Local upload + circular avatar
+
+12. **Quick Actions (Long Press App Icon – iOS/Android)**
+   - “Next Dose”
+   - “My Schedule”
+   - “SOS Call”
+   - Implement via shortcuts (UI only)
+
+====================================================
+🔥 2. WORLD-CLASS UI DESIGN (APPLE-LEVEL)
+====================================================
+Design system MUST include:
+
+### Colors:
+- Primary: #0A84FF (iOS blue)
+- Secondary: Teal/Aqua
+- Success: Green 500
+- Warning: Amber 500
+- Error: Red 600
+- Background Light: #F8FAFD
+- Background Dark: #0E0E0F
+- Card Light: White with soft shadow
+- Card Dark: Charcoal with soft elevation
+
+### Typography:
+- Use SF Pro / Material baseline
+- Large Title for onboarding
+- SemiBold headers
+- Smooth letter spacing
+
+### UI Style:
+- Rounded corners (16–28px)
+- Soft drop shadows
+- Subtle gradients
+- Lottie animations for:
+  - pill dispensing
+  - success events
+  - onboarding illustrations
+
+### Animation Behaviors:
+- Page transitions: Cupertino-like smoothness
+- Bottom sheets: iOS-style with grab handle
+- Buttons: scale bounce on press
+- Scroll effects: parallax headers
+
+====================================================
+🔥 3. ONBOARDING (WORLD-CLASS)
+====================================================
+Onboarding must be **beautiful**, with:
+- 3–4 slides
+- Swipe gestures
+- Parallax images
+- Dot/page indicator
+- Skip + Next + Get Started
+- Saves `hasSeenOnboarding=true` via shared_preferences
+
+====================================================
+🔥 4. MAJOR SCREENS (ALL WITH PREMIUM UI)
+====================================================
+Generate ALL screens with best-practice code:
+
+### Patient:
+- Home Dashboard (Next Dose, Health Score, Streaks)
+- Calendar Adherence View
+- Dose Timeline
+- History
+- Chat Feed (mock)
+- Settings (dark mode, text size, language, biometrics)
+
+### Caregiver:
+- Dashboard Metrics (cards, charts)
+- Patients List
+- Patient Detail (timeline + insights)
+- Alerts (rich)
+- Messages Feed
+- Settings
+
+### System:
+- Device Pairing (QR + NFC UI)
+- Offline banner
+- Backup screen
+- SOS emergency interactions
+
+====================================================
+🔥 5. SECURITY (MANDATORY)
+====================================================
+Use **flutter_secure_storage** for:
+- tokens
+- role
+- profile metadata
+
+shared_preferences ONLY for:
+- onboarding flag
+- dark mode
+- text size
+
+====================================================
+🔥 6. OFFLINE MODE
+====================================================
+Cache:
+- next dose
+- today's schedule
+- last 7-day logs
+
+Use:
+- Hive or shared_preferences for local caching
+
+====================================================
+🔥 7. STATE MANAGEMENT
+====================================================
+Use **Riverpod** preferred (or Provider if needed).
+
+All screens must rebuild reactively.
+
+====================================================
+🔥 8. MOCK API LAYER
+====================================================
+Provide realistic mocked endpoints:
+- login()
+- fetchCurrentUser()
+- fetchWeeklyInsights()
+- fetchPatients()
+- fetchDeviceHealth()
+- fetchMessages()
+- sendSOS()
+- sendOverrideAction()
+
+Use Future.delayed to simulate network.
+
+====================================================
+🔥 9. PROJECT STRUCTURE
+====================================================
+Use this EXACT structure:
+
+lib/
+  main.dart
+  app.dart
+  routes.dart
+  theme/
+    app_theme.dart
+  config/
+    app_config.dart
+  screens/
+    onboarding/...
+    auth/...
+    patient/...
+    caregiver/...
+    chat/...
+    device/...
+    settings/...
+  widgets/
+    buttons/...
+    indicators/...
+    cards/...
+    loaders/...
+    animations/...
+  services/
+    api_service.dart
+    cache_service.dart
+    secure_storage_service.dart
+  state/
+    auth/
+    patient/
+    caregiver/
+    alerts/
+    settings/
+    onboarding/
+    chat/
+    device/
+  models/
+    user.dart
+    patient.dart
+    medication.dart
+    schedule.dart
+    dose_log.dart
+    alert.dart
+    device.dart
+    message.dart
+  utils/
+    validators.dart
+    formatting.dart
+    constants.dart
+assets/
+  lang/en.json
+  lang/hi.json
+  animations/*.json
+  images/*.png
+
+====================================================
+🔥 10. AUTO-GENERATE A COMPLETE README.md
+====================================================
+README must include:
+
+### Project Overview
+### Screens + Features
+### Tech Stack
+### Folder Structure
+### How to Run (flutter run)
+### How to Build (APK + AAB + IPA)
+### Environment Config (dev/prod flavors)
+### Secure Storage Notes
+### Localization
+### Offline Mode Architecture
+### How to Integrate a Real Backend
+### App Store + Play Store Checklist
+### Future Enhancements
+
+====================================================
+🔥 11. QUALITY BAR
+====================================================
+- NO TODOs  
+- NO empty files  
+- Production-grade Dart  
+- Smooth animations everywhere  
+- Pixel-perfect UI  
+- Apple-level polish  
+- ALL logic must compile  
+- Code structured for easy backend integration  
+
+====================================================
+🔥 12. DELIVERABLE
+====================================================
+Generate the **entire Flutter codebase**, plus:
+- assets
+- theme
+- providers
+- services
+- README.md
+
+END OF PROMPT
