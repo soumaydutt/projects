@@ -1,0 +1,35 @@
+{
+  "name": "toolforge",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "npm run dev -w @toolforge/api",
+    "dev:web": "npm run dev -w @toolforge/web",
+    "build": "npm run build -w @toolforge/shared && npm run build -w @toolforge/api && npm run build -w @toolforge/web",
+    "build:shared": "npm run build -w @toolforge/shared",
+    "test": "npm run test -w @toolforge/api && npm run test -w @toolforge/web",
+    "test:api": "npm run test -w @toolforge/api",
+    "test:web": "npm run test -w @toolforge/web",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "seed": "npm run seed -w @toolforge/api",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.0"
+  }
+}
