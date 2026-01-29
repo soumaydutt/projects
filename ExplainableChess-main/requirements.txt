@@ -1,0 +1,10 @@
+python-chess
+stockfish
+numpy
+pandas
+tqdm
+torch
+transformers
+datasets
+accelerate
+huggingface-hub
