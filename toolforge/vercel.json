@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm run build:shared && npm run build -w @toolforge/web",
+  "outputDirectory": "apps/web/dist",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

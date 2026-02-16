@@ -1,46 +1,16 @@
-import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import morgan from 'morgan';
-import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
 import { createServer } from 'http';
 
 import { config } from './config/index.js';
-import { apiRoutes } from './routes/index.js';
-import { errorHandler, notFoundHandler } from './middleware/index.js';
+import { createApp } from './app.js';
 import { setupSocketServer } from './socket/index.js';
 
 async function bootstrap() {
-  // Create Express app
-  const app = express();
+  const app = createApp();
   const httpServer = createServer(app);
 
   // Setup Socket.IO
   setupSocketServer(httpServer);
-
-  // Middleware
-  app.use(helmet());
-  app.use(
-    cors({
-      origin: config.cors.origin,
-      credentials: true,
-    })
-  );
-  app.use(morgan(config.isDev ? 'dev' : 'combined'));
-  app.use(express.json({ limit: '10mb' }));
-  app.use(express.urlencoded({ extended: true }));
-  app.use(cookieParser());
-
-  // Trust proxy for IP detection
-  app.set('trust proxy', 1);
-
-  // API routes
-  app.use('/api', apiRoutes);
-
-  // Error handling
-  app.use(notFoundHandler);
-  app.use(errorHandler);
 
   // Connect to MongoDB
   try {

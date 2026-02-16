@@ -28,8 +28,8 @@ export const config = {
   },
 
   cookie: {
-    domain: process.env.COOKIE_DOMAIN || 'localhost',
-    secure: process.env.COOKIE_SECURE === 'true',
+    domain: process.env.COOKIE_DOMAIN || undefined,
+    secure: process.env.NODE_ENV === 'production' || process.env.COOKIE_SECURE === 'true',
     httpOnly: true,
     sameSite: 'lax' as const,
   },
