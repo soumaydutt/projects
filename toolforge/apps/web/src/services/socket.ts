@@ -15,7 +15,9 @@ export function connectSocket(): Socket | null {
     return null;
   }
 
-  socket = io({
+  const serverUrl = import.meta.env.VITE_API_URL || undefined;
+
+  socket = io(serverUrl, {
     path: '/socket.io',
     auth: { token },
     autoConnect: true,
